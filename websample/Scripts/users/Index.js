@@ -7,8 +7,10 @@
     $(document).on("click", '#edit', function () {
 //        alertDlg("edit", $(this).attr('code'));
 
+        var code = $(this).attr('code');
         var param = {
-            id:$(this).attr('code'),
+            id: code,
+            cmd:'SELECT'
         };
 
         DbAccess('', '/api/api/', param,
@@ -40,18 +42,18 @@
                 "OK": function () {
 
                     var param = {
-                        x: 'bus',
-                        ctrl: 'edit',
-                        key: old_code,
-                        code: $('#bus_dlg #code').val(),
-                        name: $('#bus_dlg #name').val(),
-                        mail: $('#bus_dlg #mail').val(),
+                        id: code,
+                        cmd:'UPDATE',
+                        name:$('#edit_dlg #name').val(),
+                        kana: $('#edit_dlg #kana').val(),
+                        tel: $('#edit_dlg #tel').val(),
+                        password: $('#edit_dlg #password').val(),
                     };
 
-                    DbAccess('#db_msg', param,
+                    DbAccess('', '/api/api/', param,
                         function (ret) {
-                            $('#bus_dlg').dialog("destroy");
-                            updateBusList();
+                            $('#edit_dlg').dialog("destroy");
+//                            updateBusList();
                         },
                         function (ret) {
                             if (ret['info']['1'] == "1062") {

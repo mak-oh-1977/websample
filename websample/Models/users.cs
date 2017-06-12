@@ -14,7 +14,9 @@ namespace websample.Models
     
     public partial class users
     {
-        public string res { get; set; }
+		public string cmd { get; set; }
+		public string res { get; set; }
+
         public int id { get; set; }
         public string name { get; set; }
         public string kana { get; set; }

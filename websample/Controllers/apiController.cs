@@ -74,15 +74,44 @@ namespace websample.Controllers
         [ResponseType(typeof(users))]
         public IHttpActionResult Postusers(users users)
         {
-            users usersRes = db.users.Find(users.id);
-            if (usersRes == null)
-            {
-                return NotFound();
-            }
-            usersRes.res = "OK";
-            
-            return Ok(usersRes);
-            /*
+			if (users.cmd == "SELECT")
+			{
+				users usersRes = db.users.Find(users.id);
+				if (usersRes == null)
+				{
+					return NotFound();
+				}
+				usersRes.res = "OK";
+
+				return Ok(usersRes);
+			}
+			if (users.cmd == "UPDATE")
+			{
+				if (!ModelState.IsValid)
+				{
+					return BadRequest(ModelState);
+				}
+
+				db.Entry(users).State = EntityState.Modified;
+
+				try
+				{
+					db.SaveChanges();
+
+					users.res = "OK";
+
+					return Ok(users);
+				}
+				catch (DbUpdateConcurrencyException)
+				{
+					throw;
+				}
+
+				return StatusCode(HttpStatusCode.NoContent);
+
+			}
+			return BadRequest();
+			/*
 
 
                         if (!ModelState.IsValid)
@@ -110,10 +139,10 @@ namespace websample.Controllers
 
                         return CreatedAtRoute("DefaultApi", new { id = users.id }, users);
             */
-        }
+		}
 
-        // DELETE: api/api/5
-        [ResponseType(typeof(users))]
+		// DELETE: api/api/5
+		[ResponseType(typeof(users))]
         public IHttpActionResult Deleteusers(int id)
         {
             users users = db.users.Find(id);
