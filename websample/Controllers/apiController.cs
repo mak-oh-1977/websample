@@ -16,91 +16,63 @@ namespace websample.Controllers
     {
         private testEntities db = new testEntities();
 
-        // GET: api/api
-        public IQueryable<users> Getusers()
-        {
-            return db.users;
-        }
 
-        // GET: api/api/5
-        [ResponseType(typeof(users))]
-        public IHttpActionResult Getusers(int id)
-        {
-            users users = db.users.Find(id);
-            if (users == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(users);
-        }
-
-        // PUT: api/api/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult Putusers(int id, users users)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != users.id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(users).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!usersExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+		public class Response
+		{
+			public string cmd { get; set; }
+			public string res { get; set; }
+			public int id { get; set; }
+			public DbSet<users> users { get; set; }
+			public users user { get; set; }
+		}
 
         // POST: api/api
-        [ResponseType(typeof(users))]
-        public IHttpActionResult Postusers(users users)
+        [ResponseType(typeof(Response))]
+        public IHttpActionResult Postusers(Response req)
         {
-			if (users.cmd == "SELECT")
+			if (req.cmd == "LIST")
 			{
-				users usersRes = db.users.Find(users.id);
-				if (usersRes == null)
+				Response res = new Response();
+				res.res = "OK";
+				res.users = db.users;	
+				return Ok(res);
+			}
+			if (req.cmd == "SELECT")
+			{
+				users users = db.users.Find(req.id);
+				if (users == null)
 				{
 					return NotFound();
 				}
-				usersRes.res = "OK";
+				Response res = new Response();
+				res.res = "OK";
+				res.user = users;
 
-				return Ok(usersRes);
+				return Ok(res);
 			}
-			if (users.cmd == "UPDATE")
+			if (req.cmd == "UPDATE")
 			{
 				if (!ModelState.IsValid)
 				{
 					return BadRequest(ModelState);
 				}
-
-				db.Entry(users).State = EntityState.Modified;
-
+				users users = db.users.Find(req.user.id);
+				if (users == null)
+				{
+					 db.users.Add(req.user);
+				}
+				else
+				{
+					db.Entry(req.user).State = EntityState.Modified;
+				}
 				try
 				{
 					db.SaveChanges();
 
-					users.res = "OK";
+					Response res = new Response();
+					res.res = "OK";
 
-					return Ok(users);
+					return Ok(res);
 				}
 				catch (DbUpdateConcurrencyException)
 				{
