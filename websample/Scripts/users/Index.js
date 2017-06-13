@@ -22,7 +22,7 @@
                 //                $('#edit_dlg').dialog("destroy");
             },
             function (ret) {
-/*                if (ret['info']['1'] == "1062") {
+                /*                if (ret['info']['1'] == "1062") {
                     alertDlg("エラー", "コードが重複しています");
                 }
                 else {

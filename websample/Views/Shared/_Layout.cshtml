@@ -4,22 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/themes/jquery-ui.css" rel="stylesheet" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
 
     <script src="~/Scripts/common/common.js"></script>
-
-@{
-    string c = ViewContext.RouteData.Values["controller"].ToString();
-    string a = ViewContext.RouteData.Values["action"].ToString();
-    <link href="~/Content/@c/@(a).css"></link>
-    <script src="~/Scripts/@c/@(a).js"></script>
-}
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -46,6 +37,6 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
+    @RenderSection("scripts", required: false)
 </body>
 </html>
