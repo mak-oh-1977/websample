@@ -114,7 +114,90 @@ namespace websample.Models
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+		public class ApiReq
+		{
+			public string cmd { get; set; }
+			public string res { get; set; }
+			public int id { get; set; }
+			public users user { get; set; }
+		}
+
+		public class ApiRes
+		{
+			public string res { get; set; } = "OK";
+			public string msg { get; set; }
+			public DbSet<users> users { get; set; }
+			public users user { get; set; }
+
+		}
+		public ActionResult Api(ApiReq req)
+		{
+			var res = new ApiRes();
+			switch (req.cmd)
+			{
+				case "LIST":
+					res.users = db.users;
+					break;
+
+				case "SELECT":
+					{
+						users users = db.users.Find(req.id);
+						if (users == null)
+						{
+							res.res = "NG";
+						}
+						else
+						{
+							res.user = users;
+						}
+						break;
+					}
+
+				case "UPDATE":
+					if (!ModelState.IsValid)
+					{
+						res.res = "NG";
+					}
+					else
+					{
+						db.Entry(req.user).State = EntityState.Modified;
+						try
+						{
+							db.SaveChanges();
+						}
+						catch (Exception e)
+						{
+							res.res = "NG";
+							res.msg = e.ToString();
+						}
+					}
+					break;
+
+				case "INSERT":
+					if (ModelState.IsValid)
+					{
+						db.users.Add(req.user);
+						try
+						{
+							db.SaveChanges();
+						}
+						catch (Exception e)
+						{
+							res.res = "NG";
+							res.msg = e.ToString();
+						}
+					}
+					break;
+
+				default:
+					res.res = "NG";
+					res.msg = "Bad Request";
+					break;
+			}
+			return Json(res);
+
+		}
+		protected override void Dispose(bool disposing)
         {
             if (disposing)
             {

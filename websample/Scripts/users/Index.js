@@ -23,7 +23,7 @@
             cmd: 'LIST',
         };
 
-        DbAccess('', '/api/api/', param,
+        DbAccess('', '/users/api/', param,
 			function (ret) {
 			    $('#list tbody').remove();
 
@@ -61,7 +61,7 @@
                 "OK": function () {
 
                     var param = {
-                        cmd: 'UPDATE',
+                        cmd: 'INSERT',
                         user: {
                             id: -1,
                             name: $('#edit_dlg #name').val(),
@@ -71,7 +71,7 @@
                         }
                     };
 
-                    DbAccess('', '/api/api/', param,
+                    DbAccess('', '/users/api/', param,
                         function (ret) {
                             $('#edit_dlg').dialog("destroy");
                             updateList();
@@ -104,7 +104,7 @@
 //            users: [{ id: code }]
         };
 
-        DbAccess('', '/api/api/', param,
+        DbAccess('', '/users/api/', param,
             function (ret) {
                 $('#edit_dlg #name').val(ret.user['name']);
                 $('#edit_dlg #kana').val(ret.user['kana']);
@@ -133,7 +133,7 @@
                 "OK": function () {
 
                     var param = {
-                        cmd:'UPDATE',
+                        cmd: 'UPDATE',
                         user: {
                             id: code,
                             name: $('#edit_dlg #name').val(),
@@ -143,7 +143,7 @@
                         }
                     };
 
-                    DbAccess('', '/api/api/', param,
+                    DbAccess('', '/users/api/', param,
                         function (ret) {
                             $('#edit_dlg').dialog("destroy");
                             updateList();
