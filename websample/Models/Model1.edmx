@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
           <Property Name="name" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="kana" Type="nchar" MaxLength="20" />
           <Property Name="tel" Type="nchar" MaxLength="20" />

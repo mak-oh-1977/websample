@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.VisualBasic;
 
 namespace websample.Models
 {
@@ -122,11 +123,16 @@ namespace websample.Models
 			public users user { get; set; }
 		}
 
+        public class userres 
+        {
+            public int id { get; set; }
+            public int name { get; set; }
+        }
 		public class ApiRes
 		{
 			public string res { get; set; } = "OK";
 			public string msg { get; set; }
-			public DbSet<users> users { get; set; }
+			public object users { get; set; }
 			public users user { get; set; }
 
 		}
@@ -136,8 +142,9 @@ namespace websample.Models
 			switch (req.cmd)
 			{
 				case "LIST":
-					res.users = db.users;
-					break;
+                    var u = new SampleModel();
+                    res.users = u.GetUsers();
+                    break ;
 
 				case "SELECT":
 					{
