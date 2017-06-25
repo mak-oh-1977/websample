@@ -22,7 +22,10 @@ namespace websample
 			bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
 						"~/Scripts/modernizr-*"));
 
-			bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new ScriptBundle("~/bundles/fhconv").Include(
+                        "~/Scripts/fhconv.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/site.css"
 					  ));
 

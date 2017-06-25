@@ -179,12 +179,14 @@
     </None>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\home\index.js" />
+    <Content Include="Scripts\home\test1.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\fhconv.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\users\Index.js" />
     <Content Include="Web.config" />
