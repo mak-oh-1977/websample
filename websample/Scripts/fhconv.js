@@ -45,8 +45,10 @@ $(function () {
             };
 
             //dataAttrが見つからない場合は抜ける
+            //未設定の場合はひらがな→カナ＋全角→半角
             if (typeof (dataAttr) === 'undefined') {
-                return true;
+                dataAttr = ["hgtokk", "fkktohkk"];
+//                return true;
             }
 
             if (Object.prototype.toString.call(dataAttr) !== "[object Array]") {
