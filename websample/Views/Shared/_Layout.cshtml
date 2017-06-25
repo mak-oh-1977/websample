@@ -4,8 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/themes/css")
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/" + 
+                                               ViewContext.RouteData.Values["controller"] + "/" + 
+                                               ViewContext.RouteData.Values["Action"] + ".css")">
+
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
@@ -37,6 +43,9 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+    <script src="@Url.Content("~/Scripts/" +
+        ViewContext.RouteData.Values["controller"] + "/" +
+        ViewContext.RouteData.Values["action"] +  ".js")"></script>
         @RenderSection("scripts", required: false)
 </body>
 </html>

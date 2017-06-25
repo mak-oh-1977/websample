@@ -143,6 +143,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\home\index.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\custom\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\themes\custom\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -177,6 +178,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\home\index.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -186,12 +188,15 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\users\Index.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\home\Index.cshtml" />
+    <Content Include="Views\home\test1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\apiController.cs" />
+    <Compile Include="Controllers\homeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
