@@ -2,7 +2,7 @@
     $('[tabindex=1]').focus();
 })
 
-$('.tabstop').keypress(function (e) {
+$('[tabindex]').keypress(function (e) {
     if (e.which == 13) {
         var idx = $(this).attr('tabindex');
         idx++;
