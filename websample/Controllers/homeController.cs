@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace websample.Controllers
 {
-    public class homeController : Controller
+    public class HomeController : Controller
     {
         // GET: home
         public ActionResult Index()
