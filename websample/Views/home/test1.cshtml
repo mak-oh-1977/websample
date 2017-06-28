@@ -11,14 +11,24 @@
         全角ひらがなを半角カナ
         </th>
         <td>
-            <input type="text" class="fhconvert" tabindex="1"/>
+            <input type="text" class="in-item fhconvert" tabindex="1"  name="kana"/>
         </td>
     </tr>
     <tr>
         <th>
         全角英数を半角英数
         </th><td>
-            <input type="text" class="fhconvert" tabindex="2" data-fhconvert='ftoh'/>
+            <input type="text" class="in-item fhconvert" tabindex="2" data-fhconvert='ftoh' name="alpha"/>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            ラジオ
+        </th>
+        <td>
+            <input type="radio" class ="in-item" tabindex="3" name="type" value="100" checked>選択１
+            <input type="radio" class ="in-item" tabindex="3" name="type" value="200">選択２
+            <input type="radio" class ="in-item" tabindex="3" name="type" value="300">選択３
         </td>
     </tr>
     <tr>
@@ -26,7 +36,13 @@
         年月選択
         </th>
         <td>
-            <input type="text" tabindex="3"/>
+            <input type="text" class="in-item" tabindex="4" name="ym"/>
+        </td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            <button id="send">送信</button>
         </td>
     </tr>
 </table>
