@@ -33,10 +33,18 @@
     </tr>
     <tr>
         <th>
-        年月選択
+            年月選択
         </th>
         <td>
-            <input type="text" class="in-item" tabindex="4" name="ym"/>
+            <input type="text" class="in-item" tabindex="4" name="ym" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            年選択
+        </th>
+        <td>
+             @Html.DropDownList("年", (IEnumerable<SelectListItem>)ViewBag.SelectOptions, new {@class="in-item hoge"})
         </td>
     </tr>
     <tr>
