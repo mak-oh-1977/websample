@@ -10,32 +10,75 @@ $('.in-item').keydown(function (e) {
     }
 });
 
+//フォームの初期化
+function InitItems(items)
+{
+    $(items).
+        filter('input[type="text"],textarea,select').each(function () {
+            $(this).val('');
+        });
+    $(items).
+        filter('input[type="radio"][default]').each(function () {
+            $(this).prop('checked', true);
+        });
+}
+
+//フォーム→オブジェクト
+function GetParam(items)
+{
+    var param = {};
+
+    $(items)
+        .filter('input[type="text"],input[type="radio"]:checked,textarea,select')
+        .each(function () {
+            var name = $(this).attr('name');
+            param[name] = $(this).val();
+        });
+    console.debug(param);
+
+    return param
+}
+
+//オブジェクト→フォーム
+function SetItem(items, param)
+{
+    $.each(param, function (key, val) {
+        console.debug(key + "=" + val);
+        $(items).filter('[name=' + key + ']').val([val]);
+    })
+}
+
 $('button#send').click(function () {
+    var items = $('#test1 .in-item');
+    var param = GetParam(items);
 
-    var items = $('.in-item');
-    for (var i = 0; i < items.length; i++)
-    {
-        var item = $(items).eq(i);
-        var type = $(item).attr('type');
+    InitItems(items);
 
-        var v = '';
-        var name = $(item).attr('name');
-        if (type == 'radio')
-        {
-            var check = $(item).prop('checked');
-            if (check == true)
-            {
-                v = $(item).val();
-            }
+    DbAccess('', '/home/sendback/', param,
+        function (ret) {
+            console.debug(ret);
+
+            SetItem(items, ret);
+        },
+        function (ret) {
         }
-        else
-        {
-            v = $(item).val()
-        }
-        if (v != '')
-            alert(name + ':' + v);
+    );
+});
 
-    }
-    var radio = $('input[type]:checked').val();
-    alert(radio);
+$('a#send2').click(function () {
+    var items = $('#test2 .in-item');
+    var param = GetParam(items);
+
+    InitItems(items);
+
+    var url = $(this).attr('href');
+    DbAccess('', url, param,
+        function (ret) {
+            console.debug(ret);
+
+            SetItem(items, ret);
+        },
+        function (ret) {
+        }
+    );
 });

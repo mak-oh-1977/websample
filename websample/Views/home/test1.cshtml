@@ -5,7 +5,7 @@
 
 <h2>test1</h2>
 
-<table>
+<table id="test1">
     <tr>
         <th>
         全角ひらがなを半角カナ
@@ -26,7 +26,7 @@
             ラジオ
         </th>
         <td>
-            <input type="radio" class ="in-item" tabindex="3" name="type" value="100" checked>選択１
+            <input type="radio" class ="in-item" tabindex="3" name="type" value="100" default checked>選択１
             <input type="radio" class ="in-item" tabindex="3" name="type" value="200">選択２
             <input type="radio" class ="in-item" tabindex="3" name="type" value="300">選択３
         </td>
@@ -44,13 +44,37 @@
             年選択
         </th>
         <td>
-             @Html.DropDownList("年", (IEnumerable<SelectListItem>)ViewBag.SelectOptions, new {@class="in-item hoge"})
+            @Html.DropDownList("yy", (IEnumerable<SelectListItem>)ViewBag.SelectOptions, new { @class = "in-item hoge" })
+        </td>
+    </tr>
+    <tr>
+        <th>
+        </th>
+        <td>
+            <textarea class="in-item" name="memo"></textarea>
         </td>
     </tr>
     <tr>
         <th></th>
         <td>
             <button id="send">送信</button>
+        </td>
+    </tr>
+</table>
+
+<table id="test2">
+    <tr>
+        <th>
+            全角ひらがなを半角カナ
+        </th>
+        <td>
+            <input type="text" class="in-item fhconvert" tabindex="1" name="kana" />
+        </td>
+    </tr>
+    <tr>
+        <th>test</th>
+        <td>
+            @Html.ActionLink("送信２", "sendback", null, new { @class = "", @id = "send2", onclick = "return false;" })
         </td>
     </tr>
 </table>

@@ -1,0 +1,12 @@
+﻿body {
+}
+
+a#send2 {
+    display: inline-block;
+    background-image: url('send-bt.gif');
+    /*    border:1px solid #ff6a00;*/
+    width: 0px;
+    height: 30px;
+    padding-left:150px;
+    overflow:hidden;
+}

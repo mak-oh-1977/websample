@@ -26,8 +26,9 @@ namespace websample
                         "~/Scripts/fhconv.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-					  "~/Content/site.css"
-					  ));
+                      "~/Content/reset.css",
+                      "~/Content/site.css"
+                      ));
 
 			bundles.Add(new StyleBundle("~/Content/themes/css").Include(
 						  "~/Content/themes/custom/jquery-ui.css"

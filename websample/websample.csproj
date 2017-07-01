@@ -143,7 +143,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\home\button.gif" />
     <Content Include="Content\home\index.css" />
+    <Content Include="Content\home\send-bt.gif" />
+    <Content Include="Content\home\test1.css" />
+    <Content Include="Content\img\back.png" />
+    <Content Include="Content\reset.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\custom\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\themes\custom\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -281,7 +286,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58145</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58145/</IISUrl>
+          <IISUrl>http://localhost:58145/webapp/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
