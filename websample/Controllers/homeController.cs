@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Drawing.Printing;
 using System.Web.Mvc;
+using TuesPechkin;
 
 namespace websample.Controllers
 {
@@ -50,5 +48,48 @@ namespace websample.Controllers
 
             return Json(req);
         }
+
+        // アプリケーションで単一のインスタンスとする
+        private static IConverter Converter =
+            new ThreadSafeConverter(
+                new RemotingToolset<PdfToolset>(
+                    new WinAnyCPUEmbeddedDeployment(
+                        new TempFolderDeployment())));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult pdf(ReqRes req)
+        {
+            var helper = new UrlHelper(ControllerContext.RequestContext);
+            var indexUrl = helper.Action("Index", "Home", null, Request.Url.Scheme);
+
+            var document = new HtmlToPdfDocument()
+            {
+                GlobalSettings =
+                {
+                    ProduceOutline = true,
+                    DocumentTitle = "PDF Sample",
+                    PaperSize = PaperKind.A4,
+                    Margins =
+                    {
+                        All = 1.375,
+                        Unit = Unit.Centimeters
+                    }
+                },
+                Objects =
+                {
+                    new ObjectSettings() {
+                        PageUrl = indexUrl,
+                    },
+                }
+            };
+
+            var pdfData = Converter.Convert(document);
+
+            return File(pdfData, "application/pdf", "PdfSample.pdf");
+        }
+
     }
+
 }

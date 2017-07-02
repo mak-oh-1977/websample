@@ -65,6 +65,15 @@ $('button#send').click(function () {
     );
 });
 
+$('button#pdf').click(function () {
+    var items = $('#test1 .in-item');
+    var param = GetParam(items);
+
+    InitItems(items);
+
+    downloadFile('/home/pdf/', param);
+});
+
 $('a#send2').click(function () {
     var items = $('#test2 .in-item');
     var param = GetParam(items);

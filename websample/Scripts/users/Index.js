@@ -164,6 +164,10 @@
                             old_code,
                             $('#bus_dlg #name').val());
                 },
+                "PDF": function () {
+                    $(this).dialog("destroy");
+
+                },
                 "キャンセル": function () {
                     $(this).dialog("destroy");
                 },

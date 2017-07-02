@@ -64,3 +64,34 @@ function DbAccess(msg, req, param, ok_cb, ng_cb) {
 
 }
 
+//////////////////////////////////////////////////////////////////////////
+//
+//	Fileダウンロード実装
+//
+//	module:送信先モジュール名
+//	values:パラメータ配列
+//
+function downloadFile(module, values) {
+    $('#downloadFile').remove();
+    var p = $('<div/>', { id: 'downloadFile' });
+
+    $('<iframe/>', { name: 'downloadFile', })
+		.hide()
+		.appendTo(p);
+
+    $(p).appendTo(document.body);
+
+    var f;
+    f = $('<form/>', { action: module, method: 'post', target: 'downloadFile' })
+
+    if (values !== undefined) {
+        for (var i in values) {
+            var v = values[i];
+            $(f).append($('<input/>', { type: 'hidden', name: v.name, value: v.value }))
+        }
+    }
+
+    $(f).appendTo(p)
+		.submit();
+};
+
