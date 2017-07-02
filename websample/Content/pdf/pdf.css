@@ -1,0 +1,20 @@
+﻿body {
+}
+
+table, th, td{
+    border:1px #000 solid;
+}
+
+th, td{
+    padding: 10px;
+}
+
+th{
+    width:150px;
+    font-family:'ヒラギノ丸ゴ ProN W4';
+    font-size:20px;
+}
+
+td{
+    width:300px;
+}

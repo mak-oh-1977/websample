@@ -156,6 +156,7 @@
     <Content Include="Content\home\send-bt.gif" />
     <Content Include="Content\home\test1.css" />
     <Content Include="Content\img\back.png" />
+    <Content Include="Content\pdf\pdf.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\custom\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
@@ -205,6 +206,8 @@
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\test1.cshtml" />
+    <Content Include="Views\pdf\Details.cshtml" />
+    <Content Include="Views\pdf\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -212,6 +215,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\apiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\pdfController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

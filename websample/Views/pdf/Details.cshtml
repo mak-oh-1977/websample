@@ -1,0 +1,70 @@
+﻿@model websample.Models.users
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Pdf/pdf.css")">
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    
+</head>
+<body>
+    <div>
+        <h4>users</h4>
+        <hr />
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <td colspan="2">
+                    @Html.DisplayFor(model => model.name)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.kana)
+                </th>
+                <td colspan="2">
+                    @Html.DisplayFor(model => model.name)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.tel)
+                </th>
+                <td colspan="2">
+                    @Html.DisplayFor(model => model.tel)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.password)
+                </th>
+                <td colspan="2">
+                    @Html.DisplayFor(model => model.password)
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="2">
+                備考</th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
