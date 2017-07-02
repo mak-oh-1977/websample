@@ -16,7 +16,7 @@ namespace websample.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            MenuController controller = new MenuController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;

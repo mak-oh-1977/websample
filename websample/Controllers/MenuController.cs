@@ -4,7 +4,7 @@ using TuesPechkin;
 
 namespace websample.Controllers
 {
-    public class HomeController : Controller
+    public class MenuController : Controller
     {
         // GET: home
         public ActionResult Index()

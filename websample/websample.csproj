@@ -151,10 +151,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\home\button.gif" />
-    <Content Include="Content\home\index.css" />
-    <Content Include="Content\home\send-bt.gif" />
-    <Content Include="Content\home\test1.css" />
+    <Content Include="Content\Menu\button.gif" />
+    <Content Include="Content\Menu\index.css" />
+    <Content Include="Content\Menu\send-bt.gif" />
+    <Content Include="Content\Menu\test1.css" />
     <Content Include="Content\img\back.png" />
     <Content Include="Content\pdf\pdf.css" />
     <Content Include="Content\reset.css" />
@@ -192,8 +192,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\home\index.js" />
-    <Content Include="Scripts\home\test1.js" />
+    <Content Include="Scripts\Menu\index.js" />
+    <Content Include="Scripts\Menu\test1.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -204,8 +204,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\users\Index.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\test1.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\test1.cshtml" />
     <Content Include="Views\pdf\Details.cshtml" />
     <Content Include="Views\pdf\Index.cshtml" />
   </ItemGroup>
@@ -214,7 +214,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\apiController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\pdfController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
