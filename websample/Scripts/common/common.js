@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-/*
+
     $('li.dropdown').hover(
 			function () {
 				$(this).find('dl').slideDown(200);
@@ -9,7 +9,7 @@
 			}
 	);
     $('dl.dropdown-menu').hide();
-*/
+
 });
 //////////////////////////////////////////////////////////////////////////
 //
