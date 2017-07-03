@@ -153,9 +153,9 @@
   <ItemGroup>
     <Content Include="Content\Menu\button.gif" />
     <Content Include="Content\Menu\index.css" />
-    <Content Include="Content\Menu\send-bt.gif" />
-    <Content Include="Content\Menu\test1.css" />
-    <Content Include="Content\img\back.png" />
+    <Content Include="Content\Form\send-bt.gif" />
+    <Content Include="Content\Form\test1.css" />
+    <Content Include="Content\Shared\back.png" />
     <Content Include="Content\pdf\pdf.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\Site.css" />
@@ -193,7 +193,7 @@
     </None>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\Menu\index.js" />
-    <Content Include="Scripts\Menu\test1.js" />
+    <Content Include="Scripts\Form\Test1.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -205,7 +205,7 @@
     <Content Include="Scripts\users\Index.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Menu\Index.cshtml" />
-    <Content Include="Views\Menu\test1.cshtml" />
+    <Content Include="Views\Form\Test1.cshtml" />
     <Content Include="Views\pdf\Details.cshtml" />
     <Content Include="Views\pdf\Index.cshtml" />
   </ItemGroup>
@@ -214,6 +214,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\apiController.cs" />
+    <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\pdfController.cs" />
     <Compile Include="Global.asax.cs">
@@ -279,6 +280,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -23,9 +23,7 @@
     <div class="navbar">
         <ul class="nav-left" id="nav_menu">
             <li>
-                <span class="g_navi menu_btn" value="menu">
-                    <i class="icon-home icon-white"></i>メニュー
-                </span>
+                @Html.ActionLink("メニュー", "Index", "Menu", null, new { @class = "menu_btn g_navi" })
             </li>
         </ul>
         <ul class="nav-left">
