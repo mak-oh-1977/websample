@@ -7,8 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.VisualBasic;
+using websample.Models;
 
-namespace websample.Models
+namespace websample.Controllers
 {
     public class usersController : Controller
     {

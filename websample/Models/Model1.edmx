@@ -9,8 +9,8 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="None" Nullable="false" />
-          <Property Name="name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="20" />
           <Property Name="kana" Type="nchar" MaxLength="20" />
           <Property Name="tel" Type="nchar" MaxLength="20" />
           <Property Name="password" Type="nchar" MaxLength="20" />
@@ -30,7 +30,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="kana" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="tel" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />

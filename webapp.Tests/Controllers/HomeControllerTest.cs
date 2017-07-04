@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using websample;
 using websample.Controllers;
+using websample.Models;
 
 namespace websample.Tests.Controllers
 {
@@ -24,6 +25,26 @@ namespace websample.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void データ作成()
+        {
+            usersController controller = new usersController();
+
+            for(int i = 0; i < 100; i++)
+            {
+                var u = new users()
+                {
+                    name = "hoge" + i,
+                    kana = "kana" + i,
+                };
+                ActionResult result = controller.Create(u);
+
+                Assert.IsNotNull(result);
+            }
+
+        }
+
 /*
         [TestMethod]
         public void About()
