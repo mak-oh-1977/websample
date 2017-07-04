@@ -10,6 +10,13 @@ namespace websample.Models
     {
         private testEntities db = new testEntities();
 
+        public class User {
+            public int id { get; set;  }
+            public string name { get; set; }
+            public string kana { get; set; }
+            public string tel { get; set; }
+        }
+
         public object GetUsers()
         {
             var ret = db.users.
@@ -21,18 +28,19 @@ namespace websample.Models
                         x.kana
                     }).ToList();
 
-            return ret.Select((x) => new
+            return ret.Select((x) => new User()
             {
-                x.id,
+                id = x.id,
                 name = ConvToDate(x.kana),
-                //                kana = Strings.StrConv(x.kana, VbStrConv.Narrow, 0x411)
+                kana = x.kana
             });
 
         }
 
         public string ConvToDate(string s)
         {
-            return s.Substring(0, 2) + "/" + s.Substring(2, 2);
+            return s;
+//            return s.Substring(0, 2) + "/" + s.Substring(2, 2);
         }
     }
 }
