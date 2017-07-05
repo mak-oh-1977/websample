@@ -1,2 +1,43 @@
-﻿body {
+﻿.scr-r td, .scr-r th {
+	border-top:none;
+	border-right:1px solid #000000;
+	border-bottom:1px solid #000000;
+	border-left:none;
+    padding:2px;
+    height:20px;
+    vertical-align:middle;
+}
+
+table.scr-tbl {
+	border-collapse: separate;
+	border-spacing:0;
+	empty-cells:show;
+	border-top:1px solid #000000;
+	border-right:none;
+	border-bottom:none;
+	border-left:1px solid #000000;
+    table-layout:fixed;
+}
+
+.scr-r *:nth-child(1){
+    width:100px;
+}
+
+.scr-r *:nth-child(2) {
+    width: 100px;
+}
+
+.scr-r *:nth-child(3) {
+    width: 100px;
+}
+.scr-r *:nth-child(4) {
+}
+
+div#scr-inner{
+    overflow-y:scroll;
+    height:300px;
+}
+
+div#scr-inner table {
+    width:400px;
 }

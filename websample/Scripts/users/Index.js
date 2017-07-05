@@ -31,7 +31,7 @@
 			    for (var i = 0; i < ret.users.length; i++) {
 			        var row = ret.users[i];
 
-			        var r = $('<tr>', { no: row['id'] });
+			        var r = $('<tr>', { no: row['id'] ,class:'scr-r'});
 
 			        $('<td>', { text: row['name'] })
 							.appendTo(r);

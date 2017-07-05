@@ -9,9 +9,9 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table" id="list">
+<table class="scr-tbl">
     <thead>
-        <tr>
+        <tr class="scr-r">
             <th>
                 @Html.DisplayNameFor(model => model.name)
             </th>
@@ -27,7 +27,17 @@
             <th></th>
         </tr>    
     </thead>
-    <tbody></tbody>
+    <tbody>
+        <tr>
+            <td colspan="4">
+                <div id="scr-inner">
+                    <table id="list">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </tbody>
 
 </table>
 
