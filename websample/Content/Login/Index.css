@@ -1,0 +1,19 @@
+﻿body {
+}
+
+table{
+    width:300px;
+    margin:200px auto 10px;
+}
+
+th{
+    text-align:right;
+}
+
+table * {
+    padding:5px;
+}
+
+div {
+    text-align:center;
+}

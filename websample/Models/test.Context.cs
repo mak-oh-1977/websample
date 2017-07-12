@@ -25,6 +25,6 @@ namespace websample.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<users> users { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }

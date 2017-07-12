@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ログイン</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/css")
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/" +
+                                               ViewContext.RouteData.Values["controller"] + "/" +
+                                               ViewContext.RouteData.Values["Action"] + ".css")">
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+
+    <script src="~/Scripts/common/common.js"></script>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ユーザー名</th>
+            <td><input type="text" name="user" /></td>
+        </tr>
+        <tr>
+            <th>パスワード</th>
+            <td><input tyep="password" name="password" /></td>
+        </tr>
+    </table>
+    <div>
+        <button id="login" class="menu-btn">ログイン</button>
+        <span id="msg"></span>
+    </div>
+    <script src="@Url.Content("~/Scripts/" +
+        ViewContext.RouteData.Values["controller"] + "/" +
+        ViewContext.RouteData.Values["action"] +  ".js")"></script>
+</body>
+</html>

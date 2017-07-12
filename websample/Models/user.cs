@@ -12,12 +12,11 @@ namespace websample.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class users
+    public partial class user
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string name { get; set; }
-        public string kana { get; set; }
-        public string tel { get; set; }
         public string password { get; set; }
+        public short type { get; set; }
     }
 }

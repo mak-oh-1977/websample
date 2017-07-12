@@ -33,10 +33,9 @@ namespace websample.Tests.Controllers
 
             for(int i = 0; i < 100; i++)
             {
-                var u = new users()
+                var u = new user()
                 {
                     name = "hoge" + i,
-                    kana = "kana" + i,
                 };
                 ActionResult result = controller.Create(u);
 

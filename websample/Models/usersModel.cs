@@ -20,19 +20,18 @@ namespace websample.Models
         public object GetUsers()
         {
             var ret = db.users.
-                    Where(x => x.password == null).
+                    Where(x => x.name != null).
                     Select((x) => new
                     {
-                        x.id,
+                        x.Id,
                         x.name,
-                        x.kana
                     }).ToList();
 
             return ret.Select((x) => new User()
             {
-                id = x.id,
-                name = ConvToDate(x.kana),
-                kana = x.kana
+                id = x.Id,
+                name = x.name,
+                kana = ConvToDate(x.name)
             });
 
         }

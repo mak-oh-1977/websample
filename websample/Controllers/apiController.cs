@@ -22,8 +22,8 @@ namespace websample.Controllers
 			public string cmd { get; set; }
 			public string res { get; set; }
 			public int id { get; set; }
-			public DbSet<users> users { get; set; }
-			public users user { get; set; }
+			public DbSet<user> users { get; set; }
+			public user user { get; set; }
 		}
 
         // POST: api/api
@@ -39,7 +39,7 @@ namespace websample.Controllers
 			}
 			if (req.cmd == "SELECT")
 			{
-				users users = db.users.Find(req.id);
+				user users = db.users.Find(req.id);
 				if (users == null)
 				{
 					return NotFound();
@@ -56,7 +56,7 @@ namespace websample.Controllers
 				{
 					return BadRequest(ModelState);
 				}
-				users users = db.users.Find(req.user.id);
+				user users = db.users.Find(req.user.Id);
 				if (users == null)
 				{
 					 db.users.Add(req.user);
@@ -114,10 +114,10 @@ namespace websample.Controllers
 		}
 
 		// DELETE: api/api/5
-		[ResponseType(typeof(users))]
+		[ResponseType(typeof(user))]
         public IHttpActionResult Deleteusers(int id)
         {
-            users users = db.users.Find(id);
+            user users = db.users.Find(id);
             if (users == null)
             {
                 return NotFound();
@@ -140,7 +140,7 @@ namespace websample.Controllers
 
         private bool usersExists(int id)
         {
-            return db.users.Count(e => e.id == id) > 0;
+            return db.users.Count(e => e.Id == id) > 0;
         }
     }
 }

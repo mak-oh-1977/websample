@@ -28,7 +28,7 @@ namespace websample.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            users users = db.users.Find(id);
+            user users = db.users.Find(id);
             if (users == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace websample.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 //        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,kana,tel,password")] users users)
+        public ActionResult Create([Bind(Include = "id,name,kana,tel,password")] user users)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace websample.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            users users = db.users.Find(id);
+            user users = db.users.Find(id);
             if (users == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace websample.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 //        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,kana,tel,password")] users users)
+        public ActionResult Edit([Bind(Include = "id,name,kana,tel,password")] user users)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace websample.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            users users = db.users.Find(id);
+            user users = db.users.Find(id);
             if (users == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace websample.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            users users = db.users.Find(id);
+            user users = db.users.Find(id);
             db.users.Remove(users);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -121,7 +121,7 @@ namespace websample.Controllers
 			public string cmd { get; set; }
 			public string res { get; set; }
 			public int id { get; set; }
-			public users user { get; set; }
+			public user user { get; set; }
 		}
 
         public class userres 
@@ -134,7 +134,7 @@ namespace websample.Controllers
 			public string res { get; set; } = "OK";
 			public string msg { get; set; }
 			public object users { get; set; }
-			public users user { get; set; }
+			public user user { get; set; }
 
 		}
 		public ActionResult Api(ApiReq req)
@@ -149,7 +149,7 @@ namespace websample.Controllers
 
 				case "SELECT":
 					{
-						users users = db.users.Find(req.id);
+						user users = db.users.Find(req.id);
 						if (users == null)
 						{
 							res.res = "NG";

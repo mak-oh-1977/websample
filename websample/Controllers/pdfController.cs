@@ -25,7 +25,7 @@ namespace websample.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            users users = db.users.Find(id);
+            user users = db.users.Find(id);
             if (users == null)
             {
                 return HttpNotFound();

@@ -108,3 +108,25 @@ function downloadFile(module, values) {
 		.submit();
 };
 
+//////////////////////////////////////////////////////////////////////////
+//
+//	フォーム送信
+//
+//	module:送信先モジュール名
+//	values:パラメータ配列
+//
+function SendForm(module, values) {
+    var f;
+    f = $('<form/>', { action: module, method: 'post' })
+		.append($('<input/>', { type: 'hidden', name: 'm', value: module }));
+
+    for (var i in values) {
+        var v = values[i];
+        $(f).append($('<input/>', { type: 'hidden', name: v.name, value: v.value }))
+    }
+
+    $(f).appendTo(document.body)
+		.submit();
+
+};
+
