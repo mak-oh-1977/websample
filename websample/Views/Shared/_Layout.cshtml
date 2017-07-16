@@ -36,7 +36,8 @@
                     <i class="icon-user icon-white"></i>ユーザー<span class="caret"></span>
                 </a>
                 <dl class="dropdown-menu">
-                    <li><a href="index.php" class="g_navi ">ログアウト</a></li>
+                    <li>
+                        @Html.ActionLink("ログアウト", "Index", "login", null, new { @class = "g_navi" })
                 </dl>
             </li>
         </ul>

@@ -14,6 +14,7 @@ namespace websample.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            FormsAuthentication.SignOut();
             return View();
         }
     
