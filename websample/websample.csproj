@@ -228,6 +228,7 @@
     <Content Include="Views\pdf\Details.cshtml" />
     <Content Include="Views\pdf\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Cast.cs" />
