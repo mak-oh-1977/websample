@@ -16,6 +16,7 @@ namespace websample.Models
     {
         public int Id { get; set; }
         public string name { get; set; }
+        public string loginid { get; set; }
         public string password { get; set; }
         public short type { get; set; }
     }

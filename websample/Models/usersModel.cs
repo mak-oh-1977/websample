@@ -15,6 +15,20 @@ namespace websample.Models
             public string name { get; set; }
             public string kana { get; set; }
             public string tel { get; set; }
+            public short type { get; set; }
+        }
+
+        public User CheckLogin(string id, string pass)
+        {
+            User ret = db.users.
+                    Where(x => x.loginid == id && x.password == pass).
+                    Select((x) => new User
+                    {
+                        name = x.name,
+                        type = x.type,
+                    }).FirstOrDefault();
+
+            return ret;
         }
 
         public object GetUsers()

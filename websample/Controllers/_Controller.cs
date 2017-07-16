@@ -8,11 +8,11 @@ namespace websample.Controllers
 	{
         public _Controller()
         {
-            sv = new Controllers._Controller.SValue(this);    
+            SValue = new Controllers._Controller.SessionValue(this);    
         }
-        protected SValue sv;
+        protected SessionValue SValue;
 
-        public class SValue
+        public class SessionValue
         {
             private _Controller parent;
             
@@ -25,7 +25,7 @@ namespace websample.Controllers
                 return parent.Session[name];
             }
 
-            public SValue(_Controller p)
+            public SessionValue(_Controller p)
             {
                 this.parent = p;
             }

@@ -23,20 +23,31 @@
 
 </head>
 <body>
-    <table>
-        <tr>
-            <th>ユーザー名</th>
-            <td><input type="text" name="user" /></td>
-        </tr>
-        <tr>
-            <th>パスワード</th>
-            <td><input tyep="password" name="password" /></td>
-        </tr>
-    </table>
-    <div>
-        <button id="login" class="menu-btn">ログイン</button>
-        <span id="msg"></span>
-    </div>
+    @using (Html.BeginForm("Index", "Login", new {  }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+            @Html.AntiForgeryToken()
+        <table>
+            <tr>
+                <th>ログインID</th>
+                <td><input type="text" name="loginid" /></td>
+            </tr>
+            <tr>
+                <th>パスワード</th>
+                <td><input type="password" name="password" /></td>
+            </tr>
+        </table>
+        <div>
+
+            <input type="submit" value="Log in" class="btn btn-default menu-btn" /><br />
+            <span id="msg">@ViewBag.msg</span>
+        </div>
+    }
+
+
+
+
+
+
     <script src="@Url.Content("~/Scripts/" +
         ViewContext.RouteData.Values["controller"] + "/" +
         ViewContext.RouteData.Values["action"] +  ".js")"></script>

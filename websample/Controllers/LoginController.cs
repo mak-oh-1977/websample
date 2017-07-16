@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using websample.Models;
 
 namespace websample.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : _Controller
     {
         // GET: Login
@@ -15,24 +18,35 @@ namespace websample.Controllers
         }
     
         public class LoginReq {
-            public string id { get; set; }
+            public string loginid { get; set; }
             public string password { get; set; }
         }
 
         public class ApiRes{
             public string res { get; set; }
             public string msg { get; set; }
+            public object data { get; set; }
         }
 
-        public JsonResult Login(LoginReq req)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(LoginReq req)
         {
-            sv.UID = req.id;
-            var ret = new ApiRes
+            SValue.UID = req.loginid;
+            var m = new SampleModel();
+            var ret = m.CheckLogin(req.loginid, req.password);
+
+            if (ret != null)
             {
-                res = "OK"
-            };
-            
-            return Json(ret);
+                FormsAuthentication.SetAuthCookie(req.loginid, false);
+                return RedirectToAction("Index", "Menu");
+            }
+            else
+            {
+                ViewBag.Msg = "認証に失敗しました";
+            }
+
+            return View();
         }
     }
 }
