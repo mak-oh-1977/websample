@@ -10,6 +10,15 @@
 	);
     $('dl.dropdown-menu').hide();
 
+    $.widget("ui.dialog", $.ui.dialog, {
+        open:function(){
+
+            this._super();
+
+            $(".ui-dialog-titlebar-close").hide();
+        }
+    });
+
 });
 //////////////////////////////////////////////////////////////////////////
 //

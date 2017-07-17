@@ -41,3 +41,26 @@ div#scr-inner{
 div#scr-inner table {
     width:400px;
 }
+
+.close-bt{
+    width:120px;
+    height:30px;
+    background-image:url("close.gif");
+}
+.close-bt:hover{
+    width:120px;
+    height:30px;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "alpha(opacity=70)";
+
+}
+
+.ui-dialog-title{
+    text-align:center;
+    padding:0 0 0 30px;
+}
+
+.ui-dialog-buttonset{
+    margin: 0 auto 0 auto;
+}

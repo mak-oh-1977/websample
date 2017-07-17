@@ -57,39 +57,46 @@
             modal: true,
             width: 500,
             height: 300,
-            buttons: {
-                "OK": function () {
+            buttons: [
+                {
+                    text: "OK",
+                    click:function () {
 
-                    var param = {
-                        cmd: 'INSERT',
-                        user: {
-                            id: -1,
-                            name: $('#edit_dlg #name').val(),
-                            kana: $('#edit_dlg #kana').val(),
-                            tel: $('#edit_dlg #tel').val(),
-                            password: $('#edit_dlg #password').val(),
-                        }
-                    };
+                        var param = {
+                            cmd: 'INSERT',
+                            user: {
+                                id: -1,
+                                name: $('#edit_dlg #name').val(),
+                                kana: $('#edit_dlg #kana').val(),
+                                tel: $('#edit_dlg #tel').val(),
+                                password: $('#edit_dlg #password').val(),
+                            }
+                        };
 
-                    DbAccess('', '/users/api/', param,
-                        function (ret) {
-                            $('#edit_dlg').dialog("destroy");
-                            updateList();
-                        },
-                        function (ret) {
-                            if (ret['info']['1'] == "1062") {
-                                alertDlg("エラー", "コードが重複しています");
+                        DbAccess('', '/users/api/', param,
+                            function (ret) {
+                                $('#edit_dlg').dialog("destroy");
+                                updateList();
+                            },
+                            function (ret) {
+                                if (ret['info']['1'] == "1062") {
+                                    alertDlg("エラー", "コードが重複しています");
+                                }
+                                else {
+                                    alertDlg("エラー", ret['info']);
+                                }
                             }
-                            else {
-                                alertDlg("エラー", ret['info']);
-                            }
-                        }
-                    );
+                        );
+                    }
                 },
-                "キャンセル": function () {
-                    $(this).dialog("destroy");
-                },
-            }
+                {
+                    text:"",
+                    class:"close-bt",
+                    click:function () {
+                        $(this).dialog("destroy");
+                    }
+                }
+            ]
         });
     });
 

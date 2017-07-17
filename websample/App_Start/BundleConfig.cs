@@ -30,7 +30,7 @@ namespace websample
                       "~/Content/site.css"
                       ));
 
-			bundles.Add(new StyleBundle("~/Content/themes/css").Include(
+			bundles.Add(new StyleBundle("~/Content/themes/custom/css").Include(
 						  "~/Content/themes/custom/jquery-ui.css"
 						));
 
