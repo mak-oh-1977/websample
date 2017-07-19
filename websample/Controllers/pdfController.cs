@@ -30,7 +30,7 @@ namespace websample.Controllers
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(db.users);
         }
 
         // アプリケーションで単一のインスタンスとする

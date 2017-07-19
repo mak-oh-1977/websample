@@ -15,3 +15,14 @@ a#user {
     height:80px;
     font-size:0;
 }
+
+table.ui-datepicker-calendar a {
+    padding:10px;
+}
+
+table.ui-datepicker-calendar td {
+    width: 25%;
+}
+
+div.ui-datepicker { z-index: 1000 !important; }
+

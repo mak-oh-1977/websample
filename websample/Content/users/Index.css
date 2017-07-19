@@ -44,7 +44,7 @@ div#scr-inner table {
 
 .close-bt{
     width:120px;
-    height:30px;
+    height:50px;
     background-image:url("close.gif");
 }
 .close-bt:hover{

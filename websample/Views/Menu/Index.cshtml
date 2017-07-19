@@ -12,7 +12,7 @@
     </tr>
     <tr>
         <td>
-            @Html.ActionLink("ユーザー登録", "index", "users", null, new { @class = "menu-btn"})
+            @Html.ActionLink("ユーザー登録", "index", "users", null, new { @class = "menu-btn" })
         </td>
     </tr>
     <tr>
@@ -25,5 +25,22 @@
             @Html.ActionLink("PDF", "index", "pdf", null, new { @class = "menu-btn" })
         </td>
     </tr>
+    <tr>
+        <td>
+            @Html.TextBox("yearmonth", "", new {@class="ym"})
+        </td>
+        <td>
+            @Html.TextBox("yearmonth", "", new { @class = "ym"})
+        </td>
+    </tr>
 </table>
 
+<div id="dlg_test">
+    @Html.TextBox("yearmonth", "", new { @class = "ym" })
+
+</div>
+
+<div id="dlg_test2">
+    @Html.TextBox("yearmonth", "", new { @class = "ym" })
+
+</div>

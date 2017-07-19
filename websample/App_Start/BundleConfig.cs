@@ -23,11 +23,13 @@ namespace websample
 						"~/Scripts/modernizr-*"));
 */
             bundles.Add(new ScriptBundle("~/bundles/fhconv").Include(
-                        "~/Scripts/fhconv.js"));
+                        "~/Scripts/fhconv.js",
+                        "~/Scripts/YmpickerJp.js"
+                        ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/reset.css",
-                      "~/Content/site.css"
+                      "~/Content/site.css",
+                      "~/Content/reset.css"
                       ));
 
 			bundles.Add(new StyleBundle("~/Content/themes/custom/css").Include(

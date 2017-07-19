@@ -1,4 +1,4 @@
-﻿@model IEnumerable<websample.Models.users>
+﻿@model IEnumerable<websample.Models.user>
 
 @{
     ViewBag.Title = "PDF";
@@ -12,22 +12,19 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
     <table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.kana)
+                @Html.DisplayNameFor(model => model.loginid)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.tel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.password)
+                @Html.DisplayNameFor(model => model.type)
             </th>
             <th></th>
         </tr>
@@ -44,13 +41,7 @@
                 @Html.DisplayFor(modelItem => item.tel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.password)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            </td>
-            <td>
-                @Html.ActionLink("PDF", "pdf", new { id = item.id }) |
+                @Html.DisplayFor(modelItem => item.type)
             </td>
         </tr>
     }
